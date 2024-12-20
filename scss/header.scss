@@ -1,0 +1,251 @@
+body {
+   background-color: black;
+}
+
+header {
+   height: 1080px;
+   background: url(../img/images/placeholder.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+
+}
+
+.title {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   padding: 43.77px 176px 34.78px 0px;
+   position: relative;
+   border-bottom: 2px solid #ffffff09;
+   margin-bottom: 63px;
+
+}
+
+
+
+.logo {
+   display: flex;
+   align-items: center;
+   position: absolute;
+   left: 165px;
+   top: 43.77px;
+
+
+   & span {
+      display: inline-block;
+      position: relative;
+      top: 4px;
+      left: 8.97px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      color: #34C759;
+   }
+}
+
+
+
+.menu {
+
+
+   &__list {
+      display: flex;
+
+      font-weight: 700;
+      font-size: 14px;
+      /* identical to box height, or 643% */
+      gap: 45px;
+      color: #FFFFFF;
+   }
+
+   &__item {}
+
+   &__link {
+
+      &_menu {
+         color: #34C759;
+      }
+   }
+}
+
+
+.header {
+
+
+   &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__title-box {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+   }
+
+   &__title {
+      font-size: 72px;
+      line-height: 84px;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: capitalize;
+
+      color: #FFFFFF;
+
+      span {
+         font-weight: 700;
+      }
+   }
+
+   &__text {
+      display: inline-block;
+      max-width: 523px;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      /* or 162% */
+      text-align: center;
+      letter-spacing: -0.2px;
+
+      color: #FFFFFF;
+
+      mix-blend-mode: normal;
+      opacity: 0.5;
+   }
+
+   &__button {
+      position: relative;
+      top: 40px;
+      padding: 25px 57.5px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      /* identical to box height */
+      text-align: center;
+      letter-spacing: 0.1em;
+
+      /* Black */
+      color: #1A1A1A;
+      min-width: 220px;
+
+
+      background: #34C759;
+      border-radius: 43px;
+   }
+}
+
+.info {
+   height: 100%;
+   position: relative;
+   top: 70px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row; // По умолчанию элементы выстраиваются в ряд
+
+   &__block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 20px; // Добавлены отступы для блоков
+   }
+
+   // Убираем абсолютное позиционирование для блоков
+   .time,
+   .location,
+   .telephone {
+      position: relative; // Оставляем относительное позиционирование
+      left: 0;
+      right: 0;
+   }
+
+   &__image {
+      margin-bottom: 16px;
+   }
+
+   &__title {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+   }
+
+   &__text {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      color: #FFFFFF;
+      opacity: 0.5;
+   }
+
+   // Медиазапрос для устройств с шириной экрана 991px и меньше
+   @media (max-width: 991.98px) {
+      flex-direction: column; // Элементы выстраиваются в колонку
+      align-items: center; // Центрируем элементы по оси Y
+      margin-top: 25px;
+      gap: 50px;
+
+      .time,
+      .location,
+      .telephone {
+         position: relative; // Убираем отступы, оставляем стандартное позиционирование
+         left: 0;
+         right: 0;
+      }
+   }
+}
+
+
+
+
+
+@media (max-width: 991.98px) {
+   .info {
+      flex: 1 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .logo {
+      left: 35%;
+   }
+
+   .header__title {
+      font-size: 58px;
+   }
+
+   .header__button {
+      transform: scale(0.9);
+   }
+}
+
+@media (max-width: 767.98px) {
+   .header__text {
+      font-size: 14px;
+   }
+
+   .header__title {
+      font-size: 48px;
+   }
+
+   .logo {
+      left: 45px;
+   }
+
+   .menu {
+      margin-right: -75px;
+   }
+}

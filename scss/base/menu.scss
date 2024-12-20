@@ -1,0 +1,119 @@
+.menu {
+
+	// .menu__icon
+	&__icon {
+		display: none;
+
+		@media (max-width: $tablet) {
+			display: block;
+			position: relative;
+			width: toRem(30);
+			height: toRem(18);
+			z-index: 15; // Поверх меню
+
+			span,
+			&::before,
+			&::after {
+				content: "";
+				transition: all 0.3s ease;
+				position: absolute;
+				width: 100%;
+				height: toRem(2);
+				background-color: #000;
+			}
+
+			&::before {
+				top: 0;
+			}
+
+			&::after {
+				bottom: 0;
+			}
+
+			span {
+				top: calc(50% - toRem(1));
+			}
+
+			// При открытии меню (класс .menu-open)
+			.menu-open & {
+				span {
+					width: 0; // Скрываем центральную полосу
+				}
+
+				&::before {
+					top: calc(50% - toRem(1));
+					transform: rotate(-45deg); // Поворот верхней полосы влево
+				}
+
+				&::after {
+					bottom: calc(50% - toRem(1));
+					transform: rotate(45deg); // Поворот нижней полосы вправо
+				}
+			}
+		}
+	}
+
+	// .menu__body
+	&__body {
+		@media (max-width: $tablet) {
+			position: fixed;
+			width: toRem(250); // Ширина контейнера с меню
+			height: 100%;
+			left: -100%; // Скрываем меню за экраном
+			top: 0;
+			overflow: auto;
+			padding: toRem(50) toRem(15) toRem(15) toRem(30);
+			transition: left 0.3s;
+			background-color: rgba(0, 0, 0, 0.8); // Тёмный фон для меню
+			z-index: 10; // Выше остальных элементов страницы
+
+			// Тёмный фон отображается только в области меню
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background-color: rgba(0, 0, 0, 0.8); // Тёмный фон
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				z-index: -1;
+			}
+
+			// Состояние открытия меню
+			.menu-open & {
+				left: 0; // Выдвигаем меню
+
+				&::before {
+					opacity: 1; // Показать фон только в пределах меню
+				}
+			}
+		}
+	}
+
+	// .menu__list
+	&__list {
+		@media (max-width: $tablet) {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative; // Для правильной вложенности
+			z-index: 11; // Содержимое выше фона
+		}
+	}
+
+	// .menu__item
+	&__item {}
+
+	// .menu__link
+	&__link {
+		@media (max-width: $tablet) {}
+	}
+}
+
+// Зеленый крестик при открытом меню
+.menu-open .icon-menu::before,
+.menu-open .icon-menu::after {
+	background-color: #34C759; // Крестик будет зеленым
+}
